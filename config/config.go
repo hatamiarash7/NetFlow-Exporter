@@ -2,6 +2,7 @@ package config
 
 import "time"
 
+// Config is the main configuration type
 type Config struct {
 	LogLevel      string        `default:"info" usage:"Log level."`
 	LogFormat     string        `default:"text" usage:"Log format. It's text or json."`

@@ -35,7 +35,8 @@ type sample struct {
 	TimestampMs int64
 }
 
-type collector struct {
+// Collector is the main collector type
+type Collector struct {
 	Config  config.Config
 	Channel chan *sample
 	Samples map[string]*sample
@@ -48,8 +49,8 @@ type timeConstMetric struct {
 }
 
 // NewCollector will define new NetFlow collector instance
-func NewCollector(cfg config.Config) *collector {
-	c := &collector{
+func NewCollector(cfg config.Config) *Collector {
+	c := &Collector{
 		Config:  cfg,
 		Channel: make(chan *sample, 0),
 		Samples: map[string]*sample{},
@@ -60,7 +61,8 @@ func NewCollector(cfg config.Config) *collector {
 	return c
 }
 
-func (c *collector) Reader(udpSock *net.UDPConn) {
+// Reader will read NetFlow UDP packets from the socket
+func (c *Collector) Reader(udpSock *net.UDPConn) {
 	defer udpSock.Close()
 	decoders := make(map[string]*netflow.Decoder)
 
@@ -174,7 +176,7 @@ func makeName(l map[string]string) string {
 	return name
 }
 
-func (c *collector) process() {
+func (c *Collector) process() {
 	ticker := time.NewTicker(time.Minute).C
 
 	for {
@@ -203,11 +205,13 @@ func (c *collector) process() {
 	}
 }
 
-func (c *collector) Describe(ch chan<- *prometheus.Desc) {
+// Describe will describe the metrics
+func (c *Collector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- lastProcessed.Desc()
 }
 
-func (c *collector) Collect(ch chan<- prometheus.Metric) {
+// Collect will collect the metrics
+func (c *Collector) Collect(ch chan<- prometheus.Metric) {
 	ch <- lastProcessed
 	c.Mutex.Lock()
 	samples := make([]*sample, 0, len(c.Samples))
@@ -249,6 +253,7 @@ func (c *collector) Collect(ch chan<- prometheus.Metric) {
 	}
 }
 
+// NewTimeConstMetric creates a new prometheus.Metric with a timestamp
 func NewTimeConstMetric(desc *prometheus.Desc, valueType prometheus.ValueType,
 	value float64, timestampMs int64) (prometheus.Metric, error) {
 	return &timeConstMetric{
@@ -256,6 +261,8 @@ func NewTimeConstMetric(desc *prometheus.Desc, valueType prometheus.ValueType,
 		Metric: prometheus.MustNewConstMetric(desc, prometheus.GaugeValue, value, []string{}...),
 	}, nil
 }
+
+// MustNewTimeConstMetric creates a new prometheus.Metric with a timestamp
 func MustNewTimeConstMetric(desc *prometheus.Desc, valueType prometheus.ValueType,
 	value float64, timestampMs int64) prometheus.Metric {
 	m, err := NewTimeConstMetric(desc, valueType, value, timestampMs)
