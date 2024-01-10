@@ -6,7 +6,7 @@ require (
 	github.com/itzg/go-flagsfiller v1.14.0
 	github.com/prometheus/client_golang v1.18.0
 	github.com/prometheus/client_model v0.5.0
-	github.com/sirupsen/logrus v1.6.0
+	github.com/sirupsen/logrus v1.9.3
 	github.com/tehmaze/netflow v0.0.0-20170921210347-852af103667f
 )
 
