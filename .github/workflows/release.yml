@@ -8,11 +8,6 @@ on:
 env:
   IMAGE_NAME: hatamiarash7/netflow-exporter
 
-permissions:
-  contents: write
-  pull-requests: write
-  repository-projects: write
-
 jobs:
   init:
     name: 🚩 Initialize
@@ -57,12 +52,16 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.keyid }}
 
   docker:
     name: 🐳 Build Docker image
     needs: init
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
