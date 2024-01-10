@@ -8,6 +8,13 @@ on:
 env:
   IMAGE_NAME: hatamiarash7/netflow-exporter
 
+permissions:
+  contents: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+
 jobs:
   init:
     name: 🚩 Initialize
@@ -58,10 +65,6 @@ jobs:
     name: 🐳 Build Docker image
     needs: init
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
