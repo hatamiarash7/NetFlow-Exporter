@@ -1,0 +1,59 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Binary folder
+/bin
+/dist
+
+# Test binary, built with `go test -c`
+*.test
+junit*.xml
+
+# Coverage files
+coverage*[.html, .xml]
+*.out
+
+# Lint
+checkstyle-report.xml
+yamllint-checkstyle.xml
+
+# Log file
+*.log
+
+# IDEs
+/.vscode
+/.idea
+
+# Vim swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Vim session
+Session.vim
+
+# Vim temporary
+.netrwhist
+*~
+
+# Vim persistent undo
+[._]*.un~
+
+# vendor files
+vendor/*
+
+# configs
+config/config.yml
+config/config_test.yml
+
+# coveragehtml's files
+coverage.html
+
+.DS_Store
+gl-code-quality-report.json
