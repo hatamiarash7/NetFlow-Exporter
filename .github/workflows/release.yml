@@ -42,7 +42,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          ingerprint: "C4EEA4BF47D06A539D8BD79FD3D9E8CB2E49731F"
+          fingerprint: "C4EEA4BF47D06A539D8BD79FD3D9E8CB2E49731F"
           trust_level: 5
 
       - name: List keys
