@@ -1,5 +1,9 @@
 # NetFlow Exporter
 
+[![Release][release_badge]][release_link]
+[![License][badge_license]][link_license]
+[![Image size][badge_size_latest]][link_docker_hub]
+
 It's a simple Prometheus exporter for NetFlow. Supported versions:
 
 - NetFlow v1
@@ -54,3 +58,10 @@ Don't be shy and reach out to us if you want to contribute 😉
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
+
+[release_badge]: https://github.com/hatamiarash7/netflow-exporter/actions/workflows/release.yml/badge.svg
+[release_link]: https://github.com/hatamiarash7/netflow-exporter/actions/workflows/docker.yaml
+[link_license]: https://github.com/hatamiarash7/netflow-exporter/blob/master/LICENSE
+[badge_license]: https://img.shields.io/github/license/hatamiarash7/netflow-exporter.svg?longCache=true
+[badge_size_latest]: https://img.shields.io/docker/image-size/hatamiarash7/netflow-exporter/latest?maxAge=30
+[link_docker_hub]: https://hub.docker.com/r/hatamiarash7/netflow-exporter/
