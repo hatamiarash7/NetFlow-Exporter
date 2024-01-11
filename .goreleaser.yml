@@ -27,16 +27,6 @@ archives:
 checksum:
   name_template: "netflow-exporter_{{ .Version }}_SHA256SUMS"
   algorithm: sha256
-signs:
-  - artifacts: checksum
-    args:
-      - "--batch"
-      - "-u"
-      - "{{ .Env.GPG_FINGERPRINT }}"
-      - "--output"
-      - "${signature}"
-      - "--detach-sign"
-      - "${artifact}"
 changelog:
   skip: true
 report_sizes: true
