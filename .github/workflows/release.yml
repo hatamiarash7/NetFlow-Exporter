@@ -52,6 +52,8 @@ jobs:
           git_tag_gpgsign: true
           git_push_gpgsign: true
           trust_level: 5
+        env:
+          debug: true
 
       - name: List keys
         run: gpg -K
