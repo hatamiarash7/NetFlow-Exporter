@@ -29,6 +29,8 @@ github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcU
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/tehmaze/netflow v0.0.0-20170921210347-852af103667f h1:5dYJ4SDGn0SYo/BSXCDTf7W+LeUDj7v+VwXX723Kymw=
 github.com/tehmaze/netflow v0.0.0-20170921210347-852af103667f/go.mod h1:QRP5wJOf7gGMGL2fCAfmh/5CMZQspRxT5DqghaPRrjM=
+github.com/tehmaze/netflow v0.0.0-20240303214733-8c13bb004068 h1:1B+EAUqxEyPByCfk55tB21DtR7WF7Q2w71g7+uVkvIg=
+github.com/tehmaze/netflow v0.0.0-20240303214733-8c13bb004068/go.mod h1:QRP5wJOf7gGMGL2fCAfmh/5CMZQspRxT5DqghaPRrjM=
 golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.16.0 h1:xWw16ngr6ZMtmxDyKyIgsE93KNKz5HKmMa3b8ALHidU=
 golang.org/x/sys v0.16.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
